@@ -1,0 +1,654 @@
+Sintaxe Básica
+Os elementos Markdown descritos no documento de design original.
+
+Visão geral
+Quase todos os aplicativos Markdown suportam a sintaxe básica descrita no documento original de design do Markdown. Existem pequenas variações e discrepâncias entre os processadores Markdown - essas são anotadas em linha sempre que possível.
+
+Títulos
+Para criar um título, adicione sinais numéricos ( #) na frente de uma palavra ou frase. O número de sinais numéricos que você usa deve corresponder ao nível do título. Por exemplo, para criar um nível de título três ( <h3>), use três sinais numéricos (por exemplo, ### My Header).
+
+Remarcação	HTML	Saída renderizada
+# Heading level 1	<h1>Heading level 1</h1>	
+Nível de título 1
+## Heading level 2	<h2>Heading level 2</h2>	
+Nível de título 2
+### Heading level 3	<h3>Heading level 3</h3>	
+Nível de título 3
+#### Heading level 4	<h4>Heading level 4</h4>	
+Nível de título 4
+##### Heading level 5	<h5>Heading level 5</h5>	
+Nível de título 5
+###### Heading level 6	<h6>Heading level 6</h6>	
+Nível de título 6
+Sintaxe alternativa
+Alternativamente, na linha abaixo do texto, adicione qualquer número de ==caracteres para o nível de título 1 ou --caracteres para o nível de título 2.
+
+Remarcação	HTML	Saída renderizada
+Heading level 1
+===============	<h1>Heading level 1</h1>	
+Nível de título 1
+Heading level 2
+---------------	<h2>Heading level 2</h2>	
+Nível de título 2
+Práticas recomendadas de título
+Os aplicativos de remarcação não concordam em como lidar com um espaço ausente entre os sinais numéricos ( #) e o nome do título. Para compatibilidade, sempre coloque um espaço entre os sinais numéricos e o nome do título.
+
+✅ Faça isso	❌ Não faça isso
+# Here's a Heading
+
+#Here's a Heading
+Você também deve colocar linhas em branco antes e depois de um título para compatibilidade.
+
+✅ Faça isso	❌ Não faça isso
+Try to put a blank line before...
+
+# Heading
+
+...and after a heading.	Without blank lines, this might not look right.
+# Heading
+Don't do this!
+Parágrafos
+Para criar parágrafos, use uma linha em branco para separar uma ou mais linhas de texto.
+
+Remarcação	HTML	Saída renderizada
+I really like using Markdown.
+
+I think I'll use it to format all of my documents from now on.	<p>I really like using Markdown.</p>
+
+<p>I think I'll use it to format all of my documents from now on.</p>	
+Eu realmente gosto de usar Markdown.
+
+Acho que vou usá-lo para formatar todos os meus documentos a partir de agora.
+
+Práticas recomendadas do parágrafo
+A menos que o parágrafo esteja em uma lista , não recue os parágrafos com espaços ou tabulações.
+
+ Observação: se você precisar recuar parágrafos na saída, consulte a seção sobre como recuar (tab) .
+✅ Faça isso	❌ Não faça isso
+Don't put tabs or spaces in front of your paragraphs.
+
+Keep lines left-aligned like this.
+
+    This can result in unexpected formatting problems.
+
+  Don't add tabs or spaces in front of paragraphs.
+Quebras de linha
+Para criar uma quebra de linha ou uma nova linha ( <br>), termine uma linha com dois ou mais espaços e digite return.
+
+Remarcação	HTML	Saída renderizada
+This is the first line.  
+And this is the second line.	<p>This is the first line.<br>
+And this is the second line.</p>	
+Esta é a primeira linha.
+E esta é a segunda linha.
+
+Práticas recomendadas para quebra de linha
+Você pode usar dois ou mais espaços (comumente chamados de “espaços em branco à direita”) para quebras de linha em quase todos os aplicativos Markdown, mas isso é controverso. É difícil ver espaços em branco à direita em um editor, e muitas pessoas acidentalmente ou intencionalmente colocam dois espaços após cada frase. Por esta razão, você pode querer usar algo diferente de espaço em branco à direita para quebras de linha. Se seu aplicativo Markdown suportar HTML , você poderá usar a <br>tag HTML.
+
+Para compatibilidade, use espaço em branco à direita ou a <br>tag HTML no final da linha.
+
+Existem duas outras opções que eu não recomendo usar. CommonMark e algumas outras linguagens de marcação leves permitem que você digite uma barra invertida ( \) no final da linha, mas nem todos os aplicativos Markdown suportam isso, portanto, não é uma ótima opção do ponto de vista da compatibilidade. E pelo menos algumas linguagens de marcação leves não exigem nada no final da linha - basta digitar return e elas criarão uma quebra de linha.
+
+✅ Faça isso	❌ Não faça isso
+First line with two spaces after.  
+And the next line.
+
+First line with the HTML tag after.<br>
+And the next line.
+
+First line with a backslash after.\
+And the next line.
+
+First line with nothing after.
+And the next line.
+
+Ênfase
+Você pode adicionar ênfase colocando o texto em negrito ou itálico.
+
+Audacioso
+Para texto em negrito, adicione dois asteriscos ou sublinhados antes e depois de uma palavra ou frase. Para enfatizar o meio de uma palavra em negrito, adicione dois asteriscos sem espaços ao redor das letras.
+
+Remarcação	HTML	Saída renderizada
+I just love **bold text**.	I just love <strong>bold text</strong>.	Eu simplesmente amo texto em negrito .
+I just love __bold text__.	I just love <strong>bold text</strong>.	Eu simplesmente amo texto em negrito .
+Love**is**bold	Love<strong>is</strong>bold	O amor é ousado
+Práticas recomendadas ousadas
+Os aplicativos de remarcação não concordam em como lidar com sublinhados no meio de uma palavra. Para compatibilidade, use asteriscos em negrito no meio de uma palavra para dar ênfase.
+
+✅ Faça isso	❌ Não faça isso
+Love**is**bold	Love__is__bold
+itálico
+Para colocar o texto em itálico, adicione um asterisco ou sublinhado antes e depois de uma palavra ou frase. Para enfatizar o meio de uma palavra em itálico, adicione um asterisco sem espaços ao redor das letras.
+
+Remarcação	HTML	Saída renderizada
+Italicized text is the *cat's meow*.	Italicized text is the <em>cat's meow</em>.	O texto em itálico é o miado do gato .
+Italicized text is the _cat's meow_.	Italicized text is the <em>cat's meow</em>.	O texto em itálico é o miado do gato .
+A*cat*meow	A<em>cat</em>meow	Um miado de gato
+Práticas recomendadas em itálico
+Os aplicativos de remarcação não concordam em como lidar com sublinhados no meio de uma palavra. Para compatibilidade, use asteriscos para colocar em itálico o meio de uma palavra para dar ênfase.
+
+✅ Faça isso	❌ Não faça isso
+A*cat*meow	A_cat_meow
+Negrito e Itálico
+Para enfatizar o texto com negrito e itálico ao mesmo tempo, adicione três asteriscos ou sublinhados antes e depois de uma palavra ou frase. Para negrito e itálico no meio de uma palavra para ênfase, adicione três asteriscos sem espaços ao redor das letras.
+
+Remarcação	HTML	Saída renderizada
+This text is ***really important***.	This text is <em><strong>really important</strong></em>.	Este texto é muito importante .
+This text is ___really important___.	This text is <em><strong>really important</strong></em>.	Este texto é muito importante .
+This text is __*really important*__.	This text is <em><strong>really important</strong></em>.	Este texto é muito importante .
+This text is **_really important_**.	This text is <em><strong>really important</strong></em>.	Este texto é muito importante .
+This is really***very***important text.	This is really<em><strong>very</strong></em>important text.	Este é realmente um texto muito importante.
+ Observação: a ordem das tags eme strongpode ser invertida dependendo do processador Markdown que você está usando.
+Práticas recomendadas em negrito e itálico
+Os aplicativos de remarcação não concordam em como lidar com sublinhados no meio de uma palavra. Para compatibilidade, use asteriscos para negrito e itálico no meio de uma palavra para dar ênfase.
+
+✅ Faça isso	❌ Não faça isso
+This is really***very***important text.	This is really___very___important text.
+Citações em bloco
+Para criar uma citação em bloco, adicione um >na frente de um parágrafo.
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+A saída renderizada fica assim:
+
+Dorothy a seguiu por muitos dos belos aposentos de seu castelo.
+
+Citações em bloco com vários parágrafos
+As citações em bloco podem conter vários parágrafos. Adicione um >nas linhas em branco entre os parágrafos.
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+A saída renderizada fica assim:
+
+Dorothy a seguiu por muitos dos belos aposentos de seu castelo.
+
+A Bruxa mandou que ela limpasse as panelas e chaleiras, varresse o chão e mantivesse o fogo alimentado com lenha.
+
+Citações de bloco aninhadas
+Blockquotes podem ser aninhados. Adicione um >>na frente do parágrafo que você deseja aninhar.
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+>> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+A saída renderizada fica assim:
+
+Dorothy a seguiu por muitos dos belos aposentos de seu castelo.
+
+A Bruxa mandou que ela limpasse as panelas e chaleiras, varresse o chão e mantivesse o fogo alimentado com lenha.
+
+Citações em bloco com outros elementos
+Blockquotes podem conter outros elementos formatados de Markdown. Nem todos os elementos podem ser usados ​​— você precisará experimentar para ver quais funcionam.
+
+> #### The quarterly results look great!
+>
+> - Revenue was off the chart.
+> - Profits were higher than ever.
+>
+>  *Everything* is going according to **plan**.
+A saída renderizada fica assim:
+
+Os resultados trimestrais estão ótimos!
+A receita estava fora do gráfico.
+Os lucros foram maiores do que nunca.
+Tudo está indo de acordo com o plano .
+
+Práticas recomendadas para citações em bloco
+Para compatibilidade, coloque linhas em branco antes e depois de blockquotes.
+
+✅ Faça isso	❌ Não faça isso
+Try to put a blank line before...
+
+> This is a blockquote
+
+...and after a blockquote.	Without blank lines, this might not look right.
+> This is a blockquote
+Don't do this!
+Listas
+Você pode organizar itens em listas ordenadas e não ordenadas.
+
+Listas ordenadas
+Para criar uma lista ordenada, adicione itens de linha com números seguidos por pontos. Os números não precisam estar em ordem numérica, mas a lista deve começar com o número um.
+
+Remarcação	HTML	Saída renderizada
+1. First item
+2. Second item
+3. Third item
+4. Fourth item	<ol>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+  <li>Fourth item</li>
+</ol>	
+Primeiro item
+Segundo item
+Terceiro item
+Quarto item
+1. First item
+1. Second item
+1. Third item
+1. Fourth item	<ol>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+  <li>Fourth item</li>
+</ol>	
+Primeiro item
+Segundo item
+Terceiro item
+Quarto item
+1. First item
+8. Second item
+3. Third item
+5. Fourth item	<ol>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+  <li>Fourth item</li>
+</ol>	
+Primeiro item
+Segundo item
+Terceiro item
+Quarto item
+1. First item
+2. Second item
+3. Third item
+    1. Indented item
+    2. Indented item
+4. Fourth item	<ol>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item
+    <ol>
+      <li>Indented item</li>
+      <li>Indented item</li>
+    </ol>
+  </li>
+  <li>Fourth item</li>
+</ol>	
+Primeiro item
+Segundo item
+Terceiro item
+Item recuado
+Item recuado
+Quarto item
+Práticas recomendadas de lista ordenada
+CommonMark e algumas outras linguagens de marcação leves permitem que você use um parêntese ( )) como delimitador (por exemplo, 1) First item), mas nem todos os aplicativos Markdown suportam isso, portanto, não é uma ótima opção do ponto de vista da compatibilidade. Para compatibilidade, use apenas períodos.
+
+✅ Faça isso	❌ Não faça isso
+1. First item
+2. Second item	1) First item
+2) Second item
+Listas não ordenadas
+Para criar uma lista não ordenada, adicione traços ( -), asteriscos ( *) ou sinais de adição ( +) na frente dos itens de linha. Recue um ou mais itens para criar uma lista aninhada.
+
+Remarcação	HTML	Saída renderizada
+- First item
+- Second item
+- Third item
+- Fourth item	<ul>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+  <li>Fourth item</li>
+</ul>	
+Primeiro item
+Segundo item
+Terceiro item
+Quarto item
+* First item
+* Second item
+* Third item
+* Fourth item	<ul>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+  <li>Fourth item</li>
+</ul>	
+Primeiro item
+Segundo item
+Terceiro item
+Quarto item
++ First item
++ Second item
++ Third item
++ Fourth item	<ul>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+  <li>Fourth item</li>
+</ul>	
+Primeiro item
+Segundo item
+Terceiro item
+Quarto item
+- First item
+- Second item
+- Third item
+    - Indented item
+    - Indented item
+- Fourth item	<ul>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item
+    <ul>
+      <li>Indented item</li>
+      <li>Indented item</li>
+    </ul>
+  </li>
+  <li>Fourth item</li>
+</ul>	
+Primeiro item
+Segundo item
+Terceiro item
+Item recuado
+Item recuado
+Quarto item
+Iniciando itens de lista não ordenados com números
+Se você precisar iniciar um item de lista não ordenado com um número seguido por um ponto, você pode usar uma barra invertida ( \) para escapar do ponto.
+
+Remarcação	HTML	Saída renderizada
+- 1968\. A great year!
+- I think 1969 was second best.	<ul>
+  <li>1968. A great year!</li>
+  <li>I think 1969 was second best.</li>
+</ul>	
+1968. Um grande ano!
+Acho que 1969 foi o segundo melhor.
+Práticas recomendadas de lista não ordenada
+Os aplicativos de remarcação não concordam em como lidar com delimitadores diferentes na mesma lista. Para compatibilidade, não misture e combine delimitadores na mesma lista — escolha um e fique com ele.
+
+✅ Faça isso	❌ Não faça isso
+- First item
+- Second item
+- Third item
+- Fourth item	+ First item
+* Second item
+- Third item
++ Fourth item
+Adicionando elementos em listas
+Para adicionar outro elemento em uma lista preservando a continuidade da lista, recue o elemento quatro espaços ou uma tabulação, conforme mostrado nos exemplos a seguir.
+
+ Dica: Se as coisas não aparecerem como você esperava, verifique se você recuou os elementos na lista quatro espaços ou uma tabulação.
+Parágrafos
+* This is the first list item.
+* Here's the second list item.
+
+    I need to add another paragraph below the second list item.
+
+* And here's the third list item.
+A saída renderizada fica assim:
+
+Este é o primeiro item da lista.
+Aqui está o segundo item da lista.
+
+Preciso adicionar outro parágrafo abaixo do segundo item da lista.
+
+E aqui está o terceiro item da lista.
+Citações em bloco
+* This is the first list item.
+* Here's the second list item.
+
+    > A blockquote would look great below the second list item.
+
+* And here's the third list item.
+A saída renderizada fica assim:
+
+Este é o primeiro item da lista.
+Aqui está o segundo item da lista.
+
+Um blockquote ficaria ótimo abaixo do segundo item da lista.
+
+E aqui está o terceiro item da lista.
+Blocos de código
+Blocos de código são normalmente recuados com quatro espaços ou uma tabulação. Quando estiverem em uma lista, recue oito espaços ou duas tabulações.
+
+1. Open the file.
+2. Find the following code block on line 21:
+
+        <html>
+          <head>
+            <title>Test</title>
+          </head>
+
+3. Update the title to match the name of your website.
+A saída renderizada fica assim:
+
+Abra o arquivo.
+Encontre o seguinte bloco de código na linha 21:
+
+ <html>
+   <head>
+     <title>Test</title>
+   </head>
+Atualize o título para corresponder ao nome do seu site.
+Imagens
+1. Open the file containing the Linux mascot.
+2. Marvel at its beauty.
+
+    ![Tux, the Linux mascot](/assets/images/tux.png)
+
+3. Close the file.
+A saída renderizada fica assim:
+
+Abra o arquivo que contém o mascote do Linux.
+Maravilhe-se com sua beleza.
+
+Tux, o mascote do Linux
+
+Feche o arquivo.
+Listas
+Você pode aninhar uma lista não ordenada em uma lista ordenada ou vice-versa.
+
+1. First item
+2. Second item
+3. Third item
+    - Indented item
+    - Indented item
+4. Fourth item
+A saída renderizada fica assim:
+
+Primeiro item
+Segundo item
+Terceiro item
+Item recuado
+Item recuado
+Quarto item
+Código
+Para denotar uma palavra ou frase como código, coloque-a entre acentos graves ( `).
+
+Remarcação	HTML	Saída renderizada
+At the command prompt, type `nano`.	At the command prompt, type <code>nano</code>.	No prompt de comando, digite nano.
+Escapando Backticks
+Se a palavra ou frase que você deseja denotar como código inclui um ou mais acentos graves, você pode escapar colocando a palavra ou frase entre acentos graves ( ``).
+
+Remarcação	HTML	Saída renderizada
+``Use `code` in your Markdown file.``	<code>Use `code` in your Markdown file.</code>	Use `code` in your Markdown file.
+Blocos de código
+Para criar blocos de código, recue cada linha do bloco em pelo menos quatro espaços ou uma tabulação.
+
+    <html>
+      <head>
+      </head>
+    </html>
+A saída renderizada fica assim:
+
+<html>
+  <head>
+  </head>
+</html>
+ Observação: para criar blocos de código sem recuar linhas, use blocos de código protegidos .
+Regras horizontais
+Para criar uma régua horizontal, use três ou mais asteriscos ( ***), traços ( ---) ou sublinhados ( ___) em uma linha sozinhos.
+
+***
+
+---
+
+_________________
+A saída renderizada de todos os três parece idêntica:
+
+Práticas recomendadas de regras horizontais
+Para compatibilidade, coloque linhas em branco antes e depois das réguas horizontais.
+
+✅ Faça isso	❌ Não faça isso
+Try to put a blank line before...
+
+---
+
+...and after a horizontal rule.	Without blank lines, this would be a heading.
+---
+Don't do this!
+Links
+Para criar um link, coloque o texto do link entre colchetes (por exemplo, [Duck Duck Go]) e siga-o imediatamente com o URL entre parênteses (por exemplo, (https://duckduckgo.com)).
+
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
+A saída renderizada fica assim:
+
+Meu mecanismo de busca favorito é o Duck Duck Go .
+
+ Observação: para vincular a um elemento na mesma página, consulte vinculação a IDs de título . Para criar um link que abre em uma nova guia ou janela, consulte a seção sobre destinos de link .
+Adicionando títulos
+Opcionalmente, você pode adicionar um título para um link. Isso aparecerá como uma dica de ferramenta quando o usuário passar o mouse sobre o link. Para adicionar um título, coloque-o entre aspas após o URL.
+
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
+A saída renderizada fica assim:
+
+Meu mecanismo de busca favorito é o Duck Duck Go .
+
+URLs e endereços de e-mail
+Para transformar rapidamente um URL ou endereço de e-mail em um link, coloque-o entre colchetes angulares.
+
+<https://www.markdownguide.org>
+<fake@example.com>
+A saída renderizada fica assim:
+
+https://www.markdownguide.org
+fake@example.com
+
+Formatação de links
+Para enfatizar links, adicione asteriscos antes e depois dos colchetes e parênteses. Para denotar links como código , adicione acentos graves entre colchetes.
+
+I love supporting the **[EFF](https://eff.org)**.
+This is the *[Markdown Guide](https://www.markdownguide.org)*.
+See the section on [`code`](#code).
+A saída renderizada fica assim:
+
+Eu amo apoiar a EFF .
+Este é o Guia de Markdown .
+Consulte a seção sobre code.
+
+Links de estilo de referência
+Os links de estilo de referência são um tipo especial de link que facilita a exibição e a leitura de URLs no Markdown. Os links de estilo de referência são construídos em duas partes: a parte que você mantém em linha com seu texto e a parte que você armazena em outro lugar no arquivo para manter o texto fácil de ler.
+
+Formatando a primeira parte do link
+A primeira parte de um link de estilo de referência é formatada com dois conjuntos de colchetes. O primeiro conjunto de colchetes envolve o texto que deve aparecer vinculado. O segundo conjunto de colchetes exibe um rótulo usado para apontar para o link que você está armazenando em outro lugar do documento.
+
+Embora não seja obrigatório, você pode incluir um espaço entre o primeiro e o segundo conjunto de colchetes. O rótulo no segundo conjunto de colchetes não diferencia maiúsculas de minúsculas e pode incluir letras, números, espaços ou pontuação.
+
+Isso significa que os formatos de exemplo a seguir são aproximadamente equivalentes para a primeira parte do link:
+
+[hobbit-hole][1]
+[hobbit-hole] [1]
+Formatando a segunda parte do link
+A segunda parte de um link de estilo de referência é formatada com os seguintes atributos:
+
+O rótulo, entre colchetes, seguido imediatamente por dois pontos e pelo menos um espaço (por exemplo, [label]: ).
+O URL do link, que você pode incluir opcionalmente entre colchetes angulares.
+O título opcional para o link, que você pode colocar entre aspas duplas, aspas simples ou parênteses.
+Isso significa que os formatos de exemplo a seguir são todos aproximadamente equivalentes para a segunda parte do link:
+
+[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle
+[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle "Hobbit lifestyles"
+[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle 'Hobbit lifestyles'
+[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle (Hobbit lifestyles)
+[1]: <https://en.wikipedia.org/wiki/Hobbit#Lifestyle> "Hobbit lifestyles"
+[1]: <https://en.wikipedia.org/wiki/Hobbit#Lifestyle> 'Hobbit lifestyles'
+[1]: <https://en.wikipedia.org/wiki/Hobbit#Lifestyle> (Hobbit lifestyles)
+Você pode colocar essa segunda parte do link em qualquer lugar do seu documento Markdown. Algumas pessoas as colocam imediatamente após o parágrafo em que aparecem, enquanto outras as colocam no final do documento (como notas finais ou notas de rodapé).
+
+Um exemplo juntando as peças
+Digamos que você adicione um URL como um link de URL padrão a um parágrafo e fique assim no Markdown:
+
+In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends
+of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to
+eat: it was a [hobbit-hole](https://en.wikipedia.org/wiki/Hobbit#Lifestyle "Hobbit lifestyles"), and that means comfort.
+Embora possa apontar para informações adicionais interessantes, o URL exibido realmente não adiciona muito ao texto bruto existente, além de dificultar a leitura. Para corrigir isso, você pode formatar o URL assim:
+
+In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends
+of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to
+eat: it was a [hobbit-hole][1], and that means comfort.
+
+[1]: <https://en.wikipedia.org/wiki/Hobbit#Lifestyle> "Hobbit lifestyles"
+Em ambos os casos acima, a saída renderizada seria idêntica:
+
+Em um buraco no chão vivia um hobbit. Não uma toca suja, suja, molhada, cheia de restos de vermes e cheiro de lodo, nem uma toca seca, vazia, arenosa, sem nada para sentar ou comer: era uma toca de hobbit , e aquela significa conforto.
+
+e o HTML para o link seria:
+
+<a href="https://en.wikipedia.org/wiki/Hobbit#Lifestyle" title="Hobbit lifestyles">hobbit-hole</a>
+Práticas recomendadas para vincular
+Os aplicativos Markdown não concordam em como lidar com espaços no meio de uma URL. Para compatibilidade, tente codificar em URL quaisquer espaços com %20. Como alternativa, se seu aplicativo Markdown suportar HTML , você poderá usar a atag HTML.
+
+✅ Faça isso	❌ Não faça isso
+[link](https://www.example.com/my%20great%20page)
+
+<a href="https://www.example.com/my great page">link</a>	[link](https://www.example.com/my great page)
+Imagens
+Para adicionar uma imagem, adicione um ponto de exclamação ( !), seguido de texto alternativo entre colchetes e o caminho ou URL para o recurso de imagem entre parênteses. Opcionalmente, você pode adicionar um título entre aspas após o caminho ou URL.
+
+![The San Juan Mountains are beautiful!](/assets/images/san-juan-mountains.jpg "San Juan Mountains")
+A saída renderizada fica assim:
+
+As montanhas de San Juan são lindas!
+
+ Observação: para redimensionar uma imagem, consulte a seção sobre tamanho da imagem . Para adicionar uma legenda, consulte a seção sobre legendas de imagens .
+Vinculando imagens
+Para adicionar um link a uma imagem, coloque o Markdown da imagem entre colchetes e adicione o link entre parênteses.
+
+[![An old rock in the desert](/assets/images/shiprock.jpg "Shiprock, New Mexico by Beau Rogers")](https://www.flickr.com/photos/beaurogers/31833779864/in/photolist-Qv3rFw-34mt9F-a9Cmfy-5Ha3Zi-9msKdv-o3hgjr-hWpUte-4WMsJ1-KUQ8N-deshUb-vssBD-6CQci6-8AFCiD-zsJWT-nNfsgB-dPDwZJ-bn9JGn-5HtSXY-6CUhAL-a4UTXB-ugPum-KUPSo-fBLNm-6CUmpy-4WMsc9-8a7D3T-83KJev-6CQ2bK-nNusHJ-a78rQH-nw3NvT-7aq2qf-8wwBso-3nNceh-ugSKP-4mh4kh-bbeeqH-a7biME-q3PtTf-brFpgb-cg38zw-bXMZc-nJPELD-f58Lmo-bXMYG-bz8AAi-bxNtNT-bXMYi-bXMY6-bXMYv)
+A saída renderizada fica assim:
+
+Uma velha rocha no deserto
+Caracteres de escape
+Para exibir um caractere literal que seria usado para formatar texto em um documento Markdown, adicione uma barra invertida ( \) na frente do caractere.
+
+\* Without the backslash, this would be a bullet in an unordered list.
+A saída renderizada fica assim:
+
+* Sem a barra invertida, isso seria um marcador em uma lista não ordenada.
+
+Personagens dos quais você pode escapar
+Você pode usar uma barra invertida para escapar dos seguintes caracteres.
+
+Personagem	Nome
+\	barra invertida
+`	backtick (veja também escapando backticks no código )
+*	asterisco
+_	sublinhar
+{ }	chaves
+[ ]	colchetes
+< >	colchetes angulares
+( )	parênteses
+#	sinal de libra
++	sinal de mais
+-	sinal de menos (hífen)
+.	ponto
+!	ponto de exclamação
+|	pipe (veja também escape pipe nas tabelas )
+HTML
+Muitos aplicativos Markdown permitem que você use tags HTML em texto formatado em Markdown. Isso é útil se você preferir determinadas tags HTML à sintaxe Markdown. Por exemplo, algumas pessoas acham mais fácil usar tags HTML para imagens. Usar HTML também é útil quando você precisa alterar os atributos de um elemento, como especificar a cor do texto ou alterar a largura de uma imagem.
+
+Para usar HTML, coloque as tags no texto do arquivo formatado em Markdown.
+
+This **word** is bold. This <em>word</em> is italic.
+A saída renderizada fica assim:
+
+Esta palavra está em negrito. Esta palavra está em itálico.
+
+Práticas recomendadas de HTML
+Por motivos de segurança, nem todos os aplicativos Markdown suportam HTML em documentos Markdown. Na dúvida, verifique a documentação do seu aplicativo Markdown. Alguns aplicativos suportam apenas um subconjunto de tags HTML.
+
+Use linhas em branco para separar elementos HTML de nível de bloco como <div>, <table>, <pre>e <p>do conteúdo ao redor. Tente não recuar as tags com tabulações ou espaços — isso pode interferir na formatação.
+
+Você não pode usar a sintaxe Markdown dentro de tags HTML em nível de bloco. Por exemplo, <p>italic and **bold**</p>não vai funcionar.
+
